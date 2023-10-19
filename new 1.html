@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Complex Tabs Example</title>
+</head>
+<body>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.tab-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.tab {
+  background-color: #f1f1f1;
+  color: black;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab:hover {
+  background-color: #ddd;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.tab-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.chart {
+  width: 100%;
+  height: 200px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+}</style>
+<script>
+function openTab(evt, tabName) {
+  var i, tabContent, tabLinks;
+
+  // Hide all tab content
+  tabContent = document.getElementsByClassName('tab-content');
+  for (i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = 'none';
+  }
+
+  // Deactivate all tab links
+  tabLinks = document.getElementsByClassName('tab');
+  for (i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].classList.remove('active');
+  }
+
+  // Show the clicked tab content and activate the clicked tab link
+  document.getElementById(tabName).style.display = 'block';
+  evt.currentTarget.classList.add('active');
+}</script>
+  <div class="tab-container">
+    <div class="tabs">
+      <button class="tab" onclick="openTab(event, 'tab1')">Tab 1</button>
+      <button class="tab" onclick="openTab(event, 'tab2')">Tab 2</button>
+      <button class="tab" onclick="openTab(event, 'tab3')">Tab 3</button>
+    </div>
+
+    <div id="tab1" class="tab-content">
+      <h2>Tab 1 Content</h2>
+      <p>This is the content for Tab 1.</p>
+    </div>
+
+    <div id="tab2" class="tab-content">
+      <h2>Tab 2 Content</h2>
+      <p>This is the content for Tab 2.</p>
+      <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+      </ul>
+    </div>
+
+    <div id="tab3" class="tab-content">
+      <h2>Tab 3 Content</h2>
+      <p>This is the content for Tab 3.</p>
+      <div class="chart">
+        <!-- Include a chart here, image, or any other content -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
